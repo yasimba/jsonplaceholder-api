@@ -15,7 +15,7 @@ const checkJwt = (req: Request, res: Response, next: NextFunction) => {
     jwtPayload = <any>jwt.verify(token, config.jwtSecret);        
     console.log("Token verified")
   } catch (error) {
-    res.send("Unauthorized access. Please use a valid Token or generate a new one using: http://localhost:3000/newToken and pass it via header.");
+    res.send("Unauthorized access. Please use a valid Token or generate a new one using: http://localhost:3000/newToken/:userId and pass it via header.");
     return;
   }  
   //move on to next middleware
