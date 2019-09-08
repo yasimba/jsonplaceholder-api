@@ -1,13 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const UsersController_1 = require("./UsersController");
+const TokenController_1 = require("./TokenController");
 exports.default = [
     {
-        path: "/users",
+        path: "/newToken/:userId",
         method: "get",
         handler: [
             (req, res) => {
-                const result = UsersController_1.getAllUsers();
+                let userId = req.params.userId;
+                const result = TokenController_1.getNewToken(userId);
                 res.status(200).send(result);
             }
         ]

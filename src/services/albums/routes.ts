@@ -1,25 +1,30 @@
 import { Request, Response } from "express";
-import { getAlbums, getAlbumsById } from "./AlbumsController";
+import { getAlbums, getAlbumsByUserId } from "./AlbumsController";
+import * as jwt from 'jsonwebtoken';
+import config from '../../config';
 
 export default [
-  {
-    path: "/albums/:id",
-    method: "get",
-    handler: [
-        (req: Request, res: Response) => {
-        const result = getAlbumsById(parseInt(req.params.id));        
-        res.status(200).send(result);
-      }
-    ]
-  },
   {
     path: "/albums",
     method: "get",
     handler: [
         (req: Request, res: Response) => {
-        const result = getAlbums();
+          const token = <string>req.headers["auth"];            
+          let jwtPayload = <any>jwt.verify(token, config.jwtSecret);                                          
+          const result = getAlbumsByUserId(parseInt(jwtPayload.userId))
+          res.status(200).send(result);          
+      }
+    ]
+  },
+  {
+    path: "/albums/:id",
+    method: "get",
+    handler: [
+        (req: Request, res: Response) => {
+        const result = getAlbums(parseInt(req.params.id));
         res.status(200).send(result);
       }
     ]
   }
 ];
+

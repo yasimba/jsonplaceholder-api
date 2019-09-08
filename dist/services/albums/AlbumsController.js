@@ -1,16 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const low = require('lowdb');
-const FileSync = require('lowdb/adapters/FileSync');
-const adapter = new FileSync('db.json');
-const db = low(adapter);
-exports.getAlbums = () => {
-    let all_albums = db.get('albums')
+const dbUtils_1 = require("../../utils/dbUtils");
+/* return a specific album (authenticated) */
+exports.getAlbums = (id) => {
+    let all_albums = dbUtils_1.db.get('albums').filter({ id: id })
         .value();
     return all_albums;
 };
-exports.getAlbumsById = (id) => {
-    let album = db.get('albums').find({ userId: id })
+/*fetch all albums associated with the user (authenticated) */
+exports.getAlbumsByUserId = (userId) => {
+    let album = dbUtils_1.db.get('albums').filter({ userId: userId })
         .value();
     return album;
 };

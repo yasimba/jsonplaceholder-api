@@ -8,16 +8,19 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const ErrorHandler = __importStar(require("../utils/ErrorHandler"));
+/* Handle any 404 errors that may occur */
 const handle404Error = (router) => {
     router.use((req, res) => {
         ErrorHandler.notFoundError();
     });
 };
+/* Handle any client errors that may occur */
 const handleClientError = (router) => {
     router.use((err, req, res, next) => {
         ErrorHandler.clientError(err, res, next);
     });
 };
+/* Hanlde any server errors that may occur */
 const handleServerError = (router) => {
     router.use((err, req, res, next) => {
         ErrorHandler.serverError(err, res, next);

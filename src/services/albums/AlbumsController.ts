@@ -1,17 +1,15 @@
-const low = require('lowdb')
-const FileSync = require('lowdb/adapters/FileSync')
+import { db } from "../../utils/dbUtils";
 
-const adapter = new FileSync('db.json')
-const db = low(adapter)
-
-export const getAlbums = () => {
-    let all_albums = db.get('albums')
+/* return a specific album (authenticated) */
+export const getAlbums = (id: number) => {
+    let all_albums = db.get('albums').filter({ id:id })
     .value()
     return all_albums;
 };
 
-export const getAlbumsById = (id: number) => {
-    let album = db.get('albums').find({ userId: id})
+/*fetch all albums associated with the user (authenticated) */
+export const getAlbumsByUserId = (userId: number) => {
+    let album = db.get('albums').filter({ userId: userId})
     .value()
     return album;
 };
