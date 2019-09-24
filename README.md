@@ -1,4 +1,6 @@
-# Backend Challenge
+# JsonplaceholderAPI
+
+An secure and resilient API to query data based on the structure of jsonplaceholder api
 
 
 # Usage
