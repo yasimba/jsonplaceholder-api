@@ -15,9 +15,9 @@ npm run dev
 ### Generating new token
 
 ```
-localhost:3000/newToken/:userId
+https://myjsonplaceholder.herokuapp.com/newToken/:userId
 E.g
-localhost:3000/newToken/4
+https://myjsonplaceholder.herokuapp.com/newToken/4
 ->> Generates new jwt for the user with an id of 4
 eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0IiwiaWF0IjoxNTY3OTExNTk1LCJleHAiOjE1Njc5MTUxOTV9.YucqW4uIKiemBCI0PAxVR8n_2or90wEsBiWPw-BTaQs
 
@@ -29,14 +29,14 @@ New tokens will expire after an hour
 ### Getting Users
 
 ```
-curl http://localhost:3000/users
+curl http://https://myjsonplaceholder.herokuapp.com/users
 [{"id":1,"name":"Leanne Graham","username":"Bret","email":"Sincere@april.biz","address":{"street":"Kulas Light","suite":"Apt. 556","city":"Gwenborough","zipcode":"92998-3874","geo":{"lat":"-37.3159","lng":"81.1496"}},"phone":"1-770-736-8031 x56442","website":"hildegard.org","company":{"name":"Romaguera-Crona","catchPhrase":"Multi-layered client-server neural-net","bs":"harness real-time e-markets"}},{"id":2,"name":"Ervin Howell","username":"Antonette","email":"Shanna@melissa.tv","address":{"street":"Victor Plains","suite":"Suite 879","city":"Wisokyburgh","zipcode":"90566-7771","geo":{"lat":"-43.9509","lng":"-34.4618"}},"phone":"010-692-6593 x09125","website":"anastasia.net"," ......
 ```
 
 ### Getting albums for authenticated user
 
 ```
-curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "auth:myAuthToken"  http://localhost:3000/albums
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "auth:myAuthToken"  http://https://myjsonplaceholder.herokuapp.com/albums
 
 >>
 [{"userId":4,"id":31,"title":"adipisci laborum fuga laboriosam"},{"userId":4,"id":32,"title":"reiciendis dolores a ut qui debitis non quo labore"},{"userId":4,"id":33,"title":"iste eos nostrum"},{"userId":4,"id":34,"title":"cumque voluptatibus rerum architecto blanditiis"},{"userId":4,"id":35,"title":"et impedit nisi quae magni necessitatibus sed aut pariatur"},{"userId":4,"id": .....
@@ -44,7 +44,7 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "au
 
 ### Getting specific album by Id
 ```
-curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "auth:myAuthToken"  http://localhost:3000/albums/5
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "auth:myAuthToken"  http://https://myjsonplaceholder.herokuapp.com/albums/5
 
 >> 
 [{"userId":1,"id":5,"title":"eaque aut omnis a"}]
@@ -53,7 +53,7 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "au
 ### Getting photos for authenticated user
 
 ```
-curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "auth:myAuthToken"  http://localhost:3000/photos
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "auth:myAuthToken"  http://https://myjsonplaceholder.herokuapp.com/photos
 
 
 >>
@@ -67,7 +67,7 @@ curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "au
 
 
 ```
-curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "auth:myAuthToken"  http://localhost:3000/photos/2
+curl -i -H "Accept: application/json" -H "Content-Type: application/json" -H "auth:myAuthToken"  http://https://myjsonplaceholder.herokuapp.com/photos/2
 
 >>
 [{"albumId":1,"id":2,"title":"reprehenderit est deserunt velit ipsam","url":"https://via.placeholder.com/600/771796","thumbnailUrl":"https://via.placeholder.com/150/771796"}]

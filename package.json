@@ -1,21 +1,21 @@
 {
-  "name": "tech-challenge",
+  "name": "jsonplaceholder-api",
   "version": "1.0.0",
-  "description": "Mavennet tech challenge",
+  "description": "Jsonplaceholder API to demonstrate use of json web tokens for future projects",
   "main": "index.js",
   "scripts": {
+    "build-ts": "tsc",
+    "lint": "tslint -c tslint.json 'src/**/*.ts'",
+    "postinstall": "npm run build-ts",
+    "start": "npm run serve",
+    "serve": "node ./dist/server.js",
+    "test": "jest src",
+    "watch-node": "nodemon ./dist/server.js",
+    "watch-ts": "tsc -w",
     "dev": "tsc-watch --onSuccess \"node ./dist/server.js\""
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/yasimba/tech-challenge.git"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/yasimba/tech-challenge/issues"
-  },
-  "homepage": "https://github.com/yasimba/tech-challenge#readme",
   "dependencies": {
     "@types/compression": "^1.0.1",
     "@types/cors": "^2.8.6",
